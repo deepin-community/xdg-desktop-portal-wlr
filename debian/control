@@ -1,15 +1,33 @@
-Source: template-repository
-Section: unknown
+Source: xdg-desktop-portal-wlr
+Section: x11
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Sway and related packages team <team+swaywm@tracker.debian.org>
+Uploaders: Birger Schacht <birger@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               meson,
+               ninja-build,
+               pkg-config,
+               cmake,
+               libdrm-dev,
+               libinih-dev,
+               libgbm-dev,
+               libpipewire-0.3-dev,
+               libwayland-dev,
+               wayland-protocols,
+               libsystemd-dev | libelogind-dev,
+               systemd,
+               scdoc
+Standards-Version: 4.6.1.0
+Homepage: https://github.com/emersion/xdg-desktop-portal-wlr
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/swaywm-team/xdg-desktop-portal-wlr.git
+Vcs-Browser: https://salsa.debian.org/swaywm-team/xdg-desktop-portal-wlr
 
-Package: template-repository
+Package: xdg-desktop-portal-wlr
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}, xdg-desktop-portal, pipewire
+Provides: xdg-desktop-portal-backend
+Description: xdg-desktop-portal backend for wlroots
+ Support for the screenshot, screencast, and possibly remote-desktop
+ xdg-desktop-portal interfaces for wlroots based compositors.
